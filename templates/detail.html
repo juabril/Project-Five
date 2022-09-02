@@ -10,7 +10,7 @@
 {% block content %}
 <section class="header">
     <h1>{{ project.title }}</h1>
-    <p>{{ project.created }}</p>
+    <p>{{ project.created.strftime('%Y-%m') }}</p>
     <a href="{{ project.url }}" class="github-btn">
         <i class="fab fa-github"></i>
         View on GitHub
@@ -18,7 +18,7 @@
     <ul class="project-skills">
         <div>
         {% for skill in project.skills.split(', ') %}    
-            <li>{{ skill }}</li>
+            <li>{{ skill.capitalize() }}</li>
         {% endfor %}                            
         </div>
     </ul>
