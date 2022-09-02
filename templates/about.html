@@ -1,5 +1,11 @@
 {% extends 'layout.html' %}
 
+{% block dropdown %}
+    {% for project in projects %}
+        <li><a class="dropdown-item" href="{{ url_for('detail', id=project.id) }}">Project {{ project.id }}</a></li>
+    {% endfor %} 
+{% endblock %}
+
 {% block content %}
 
 <section class="header">

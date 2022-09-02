@@ -40,14 +40,14 @@
     <div id="project-list">
     {% for project in projects %}        
         <div id="{{ project.id }}" class="a-project">
-            <h3>{{ project.title }}</h3>
+            <a href="{{ url_for('detail', id=project.id) }}">{{ project.title }}</a>            
+            <p></p>
             <a href="{{ project.url }}" class="github-btn">
                 <i class="fab fa-github"></i>
                 View on GitHub
             </a>
             <p>
-                {{ project.description }} 
-                 
+                {{ project.description }}                  
             </p>
             <p>
                 Skills:  
@@ -62,10 +62,7 @@
     <i class="fas fa-paper-plane"></i>
     <h2>Contact Me</h2>
     <p>
-        Pastry wafer chocolate cake caramels. 
-        Gummi bears pudding sugar plum macaroon. 
-        Cake tart apple pie soufflé sweet sweet. 
-        Topping bear claw lemon drops gingerbread biscuit pudding fruitcake icing chocolate bar.
+        To reach me please use the email address below         
     </p>
     <p>
         <i class="fas fa-envelope"></i>
