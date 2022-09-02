@@ -36,7 +36,7 @@ def edit_project(id):
     project = Project.query.get_or_404(id)
     if request.form:
         project.title = request.form['title']
-        project.created = datetime.strptime(request.form['date'],'%Y-%m'),
+        project.created = datetime.strptime(request.form['date'],'%Y-%m')
         project.description = request.form['desc']
         project.skills = request.form['skills']
         project.url = request.form['github']
