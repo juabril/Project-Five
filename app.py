@@ -1,13 +1,13 @@
 from flask import render_template, url_for, redirect, request
-#from flask import (render_template, url_for, request)
-
 from models import db, Project, app
 from datetime import datetime
+
 
 @app.route('/')
 def index():   
     projects = Project.query.all()
     return render_template('index.html', projects=projects)
+
 
 @app.route('/projects/new', methods = ['GET', 'POST'])
 def new():    
@@ -30,6 +30,7 @@ def detail(id):
     project = Project.query.get_or_404(id)
     return render_template('detail.html', project=project, projects=projects)
 
+
 @app.route('/projects/<id>/edit', methods=['GET', 'POST'])
 def edit_project(id):    
     projects = Project.query.all()
@@ -44,12 +45,14 @@ def edit_project(id):
         return redirect (url_for('index'))
     return render_template('editproject.html', project=project, projects=projects)
 
+
 @app.route('/projects/<id>/delete')
 def delete_project(id):
     project = Project.query.get_or_404(id)
     db.session.delete(project)
     db.session.commit()
     return redirect(url_for('index'))
+
 
 @app.route('/about')
 def about():
